@@ -29,6 +29,16 @@ services:
     networks:
       - app-network
 
+  frontend:
+    build: ../frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - auth-service
+    networks:
+      - app-network
+
 volumes:
   postgres_data:
 
